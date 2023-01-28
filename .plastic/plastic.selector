@@ -1,0 +1,4 @@
+repository "pluck-stars@logeast@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
