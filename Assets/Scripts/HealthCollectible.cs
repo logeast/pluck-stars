@@ -10,6 +10,7 @@ public class HealthCollectible : MonoBehaviour
 
         if (controller != null)
         {
+            // 血量小于最大值时才增加
             if (controller.health < controller.maxHealth)
             {
                 controller.ChangeHealth(1);

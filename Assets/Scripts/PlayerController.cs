@@ -23,11 +23,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool canVerticalMove = true;
 
 
+    [Header("玩家附加属性")]
+
+    [Tooltip("玩家无敌时间")]
+    [SerializeField] public float timeTnvincible = 2.0f;
+
+    // 使用 rigidbody2D 获取角色属性
     private new Rigidbody2D rigidbody2D;
+
+    // 水平、垂直位置
     private float horizontal;
     private float vertical;
+
+    // 当前生命值
     private int currentHealth;
 
+    // 是否无敌状态
+    private bool isInvincible;
+    // 无敌计时器
+    private float invincibleTimer;
+
+    // 生命值，只读，给外部调用
     public int health { get { return currentHealth; } }
 
 
@@ -46,24 +62,55 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer < 0)
+            {
+                isInvincible = false;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
+        ChangePosition();
+    }
+
+    /// <summary>
+    /// 改变玩家位置
+    /// </summary>
+    private void ChangePosition()
+    {
         Vector2 position = rigidbody2D.position;
         if (canHorizontalMove)
         {
-            position.x = position.x + speed * horizontal * Time.deltaTime;
+            position.x += speed * horizontal * Time.deltaTime;
         }
         if (canVerticalMove)
         {
-            position.y = position.y + speed * vertical * Time.deltaTime;
+            position.y += speed * vertical * Time.deltaTime;
         }
         rigidbody2D.MovePosition(position);
     }
 
+    /// <summary>
+    /// 更新玩家生命值
+    /// </summary>
+    /// <param name="amount"></param>
     public void ChangeHealth(int amount)
     {
+        // 生命值减少前判断是否时无敌状态
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            invincibleTimer = timeTnvincible;
+        }
+
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
