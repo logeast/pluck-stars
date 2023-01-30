@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [Header("敌人基本属性")]
 
     [Tooltip("敌人移动速度")]
-    [SerializeField] public float speed = 3f;
+    [SerializeField] public float speed = 3.0f;
 
     [Tooltip("是否是水平移动")]
     [SerializeField] public bool vertical = true;
@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     private int direction = 1;
     // 改变方向计时器
     private float changeDirectionTimer;
+
+    // 是否损坏
+    private bool broken = true;
 
     // Start is called before the first frame update
     private void Start()
@@ -39,11 +42,23 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             changeDirectionTimer = timeChangeDirection;
         }
+
+        // 判断是否损坏
+        if (!broken)
+        {
+            return;
+        }
     }
 
     private void FixedUpdate()
     {
         ChangePosition();
+
+        // 判断是否损坏
+        if (!broken)
+        {
+            return;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,5 +88,14 @@ public class EnemyController : MonoBehaviour
         }
 
         rigidbody2D.MovePosition(position);
+    }
+
+    /// <summary>
+    /// 修复机器人
+    /// </summary>
+    public void Fix()
+    {
+        broken = false;
+        rigidbody2D.simulated = false;
     }
 }

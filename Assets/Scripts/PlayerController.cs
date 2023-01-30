@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("玩家无敌时间")]
     [SerializeField] public float timeTnvincible = 2.0f;
 
+
+    [Tooltip("导弹对象")]
+    [SerializeField] public GameObject projectilePrefab;
+
     // 使用 rigidbody2D 获取角色属性
     private new Rigidbody2D rigidbody2D;
 
@@ -42,6 +46,9 @@ public class PlayerController : MonoBehaviour
     private bool isInvincible;
     // 无敌计时器
     private float invincibleTimer;
+
+    // 目视方向
+    private Vector2 lookDirection = new Vector2(1, 0);
 
     // 生命值，只读，给外部调用
     public int health { get { return currentHealth; } }
@@ -69,6 +76,12 @@ public class PlayerController : MonoBehaviour
             {
                 isInvincible = false;
             }
+        }
+
+        // 发射飞弹
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
         }
     }
 
@@ -114,4 +127,12 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+
+    public void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2D.position + Vector2.up * 0.5f, Quaternion.identity);
+        Projectile projectile = projectileObject.GetComponent<Projectile>();
+        projectile.Launch(lookDirection, 300);
+    }
+
 }

@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 1206559015}
   - component: {fileID: 1206559014}
   - component: {fileID: 1206559013}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,6 +497,7 @@ MonoBehaviour:
   canHorizontalMove: 1
   canVerticalMove: 1
   timeTnvincible: 2
+  projectilePrefab: {fileID: 7778828074857035257, guid: a8946465eeedd44a99f927826eb73880, type: 3}
 --- !u!1 &1356830858
 GameObject:
   m_ObjectHideFlags: 0
