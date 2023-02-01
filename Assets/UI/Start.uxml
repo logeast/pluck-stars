@@ -1,7 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:GroupBox style="margin-left: 16px; margin-right: 16px; margin-top: 16px; margin-bottom: 16px;">
-        <ui:Button text="游戏设置" display-tooltip-when-elided="true" style="background-color: rgb(255, 255, 255); font-size: 40px; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;" />
-        <ui:Button text="退出游戏" display-tooltip-when-elided="true" style="background-color: rgb(255, 255, 255); font-size: 40px; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;" />
-        <ui:Button text="开始游戏" display-tooltip-when-elided="true" style="background-color: rgba(255, 255, 255, 255); font-size: 40px; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;" />
-    </ui:GroupBox>
-</ui:UXML>
