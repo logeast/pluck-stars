@@ -5,7 +5,6 @@ const require = createRequire(import.meta.url);
 const pkg = require("../package.json");
 
 export default defineConfig({
-  base: "/docs/",
   lang: "en-US",
   title: "尘星",
   description: "《尘星》产品文档，机密文件，请勿外传。",
@@ -99,7 +98,7 @@ function sidebarDatabase() {
       items: [
         { text: "武器列表", link: "/database/武器列表" },
         { text: "被动列表", link: "/database/被动列表" },
-        { text: "超弦列表", link: "/database/超弦列表" },
+        { text: "超武列表", link: "/database/超武列表" },
         { text: "拼写命令", link: "/database/拼写命令" },
       ],
     },
@@ -121,52 +120,52 @@ function sidebarProject() {
       text: "全景",
       collapsed: false,
       items: [
-        { text: "什么是《尘星》？", link: "/database/what-is" },
-        { text: "路线图", link: "/database/路线图" },
-        { text: "迭代计划", link: "/database/迭代计划" },
+        { text: "项目需求书", link: "/project/index" },
+        { text: "路线图", link: "/project/路线图" },
+        { text: "迭代计划", link: "/project/迭代计划" },
       ],
     },
     {
       text: "游戏策划",
       collapsed: false,
       items: [
-        { text: "游戏背景", link: "/database/游戏背景" },
-        { text: "世界观", link: "/database/世界观" },
-        { text: "AI 生成算法", link: "/database/AI生成算法" },
-        { text: "数值参数", link: "/database/数值参数" },
-        { text: "战斗数值", link: "/database/战斗数值" },
-        { text: "经济数值", link: "/database/经济数值" },
-        { text: "成就数值", link: "/database/成就数值" },
+        { text: "游戏背景", link: "/project/游戏背景" },
+        { text: "世界观", link: "/project/世界观" },
+        { text: "AI 生成算法", link: "/project/AI生成算法" },
+        { text: "数值参数", link: "/project/数值参数" },
+        { text: "战斗数值", link: "/project/战斗数值" },
+        { text: "经济数值", link: "/project/经济数值" },
+        { text: "成就数值", link: "/project/成就数值" },
       ],
     },
     {
       text: "商业化",
       collapsed: false,
-      items: [{ text: "广告变现", link: "/database/广告变现" }],
+      items: [{ text: "广告变现", link: "/project/广告变现" }],
     },
     {
       text: "游戏美术",
       collapsed: false,
       items: [
-        { text: "地图设计", link: "/database/地图设计" },
-        { text: "2D 角色设计", link: "/database/2D 角色设计" },
-        { text: "特效美术设计", link: "/database/特效美术设计" },
+        { text: "地图设计", link: "/project/地图设计" },
+        { text: "2D 角色设计", link: "/project/2D角色设计" },
+        { text: "特效美术设计", link: "/project/特效美术设计" },
       ],
     },
     {
       text: "游戏程序",
       collapsed: false,
       items: [
-        { text: "新手教程", link: "/database/新手教程" },
-        { text: "Unity 技巧汇总", link: "/database/Unity技巧汇总" },
+        { text: "新手教程", link: "/project/新手教程" },
+        { text: "Unity 技巧汇总", link: "/project/Unity技巧汇总" },
       ],
     },
     {
       text: "贡献指南",
       collapsed: false,
       items: [
-        { text: "如何贡献", link: "/database/如何贡献" },
-        { text: "分成机制", link: "/database/分成机制" },
+        { text: "如何贡献", link: "/project/如何贡献" },
+        { text: "分成机制", link: "/project/分成机制" },
       ],
     },
     {
@@ -174,16 +173,8 @@ function sidebarProject() {
       collapsed: false,
       items: [
         {
-          text: "Vampire Survivors Wiki",
-          link: "https://vampire-survivors.fandom.com/",
-        },
-        {
-          text: "ヴァンパイア サバイバーズ攻略",
-          link: "https://gamerch.com/vampiresurvivors/",
-        },
-        {
-          text: "王者荣耀游戏介绍",
-          link: "https://pvp.qq.com/web201605/introduce.shtml",
+          text: "参考文献",
+          link: "/project/参考文献",
         },
       ],
     },
