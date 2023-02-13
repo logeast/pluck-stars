@@ -10,7 +10,7 @@ export default defineConfig({
   description: "《尘星》产品文档，机密文件，请勿外传。",
 
   lastUpdated: true,
-  cleanUrls: true,
+  // cleanUrls: true,
 
   head: [["meta", { name: "theme-color", content: "#3c8772" }]],
 
